@@ -1,0 +1,19 @@
+
+<h2 class ="response_title">{{name}}</h2>
+<div class = "response_container">
+    <ul class = "response_list">
+        <li class = "response_item"><b>Capital:</b> {{capital}}</li>
+        <li class = "response_item"><b>Population:</b> {{population}}</li>
+        <li class = "response_item"><b>Languages:</b>
+            <ul>
+                {{#each this.languages}}
+                <li>{{name}}</li>
+                {{/each}}
+            </ul>
+        </li>
+    </ul>
+
+<div class="response_img">
+    <img src="{{flag}}" alt="{{name}}" width="400" height="200">
+</div>
+</div>
