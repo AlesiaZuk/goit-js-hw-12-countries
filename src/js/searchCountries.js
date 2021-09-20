@@ -26,27 +26,29 @@ function onSearch(e) {
 
   const validatorResult = validator(country);
 
-  if (validatorResult) {
-    fetchCountries(country)
-      .then(data => {
-        if (data.length > 10) {
+  if (country !== '') {
+    if (validatorResult) {
+      fetchCountries(country)
+        .then(data => {
+          if (data.length > 10) {
+            cleanContainerContent();
+            removeContainerColor();
+            return showAllert();
+          } else if (data.length === 1) {
+            renderCountryCard(data);
+          } else if (data.length >= 2 || data.length <= 10) {
+            showNotice();
+            renderCountryList(data);
+          }
+        })
+        .catch(() => {
           cleanContainerContent();
           removeContainerColor();
-          return showAllert();
-        } else if (data.length === 1) {
-          renderCountryCard(data);
-        } else if (data.length >= 2 || data.length <= 10) {
-          showNotice();
-          renderCountryList(data);
-        }
-      })
-      .catch(() => {
-        cleanContainerContent();
-        removeContainerColor();
-        showError();
-      });
-  } else {
-    showError();
+          showError();
+        });
+    } else {
+      showError();
+    }
   }
 }
 
