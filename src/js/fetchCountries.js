@@ -3,6 +3,7 @@ export default function fetchCountries(country) {
     if (response.status === 404) {
       return;
     }
+    console.log(response);
     return response.json();
   });
 }

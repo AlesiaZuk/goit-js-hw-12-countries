@@ -4,7 +4,10 @@ import { alert, error, defaultModules } from '@pnotify/core/dist/PNotify.js';
 import * as PNotifyMobile from '@pnotify/mobile/dist/PNotifyMobile.js';
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
+import { defaults } from '@pnotify/core';
+
 defaultModules.set(PNotifyMobile, {});
+defaults.delay = 3000;
 
 import debounce from 'lodash/debounce';
 import fetchCountries from './fetchCountries.js';
